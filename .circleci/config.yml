@@ -1,0 +1,30 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: nvidia/cuda:11.0-base  # Ganti dengan gambar Docker yang mendukung GPU
+
+    steps:
+      - checkout
+
+      # Menambahkan 30 baris dengan perintah sleep 500 di setiap baris
+      - run:
+          name: Baris 1
+          command: |
+            echo "Baris 1: Ini akan muncul segera."
+            sleep 500
+
+      - run:
+          name: Baris 2
+          command: |
+            echo "Baris 2: Ini akan muncul setelah 500 detik."
+            sleep 500
+
+      # ... Tambahkan baris-baris lainnya sampai Baris 30
+
+      - run:
+          name: Baris 30
+          command: |
+            echo "Baris 30: Ini juga akan muncul setelah 500 detik."
+            sleep 500
